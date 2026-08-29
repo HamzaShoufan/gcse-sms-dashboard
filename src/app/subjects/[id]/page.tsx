@@ -4,6 +4,7 @@ import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
 import { db } from '@/lib/firebase';
 import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { PastPaperSection } from './../../../../components/PastPaperSection';
 
 interface PracticeLog {
   marksObtained: number;
@@ -685,6 +686,9 @@ export default function SubjectPage({ params }: { params: Promise<{ id: string }
           </a>
         </div>
       </div>
+
+      {/* Row 4: Past Papers & AI Marker Section */}
+      <PastPaperSection subjectName={subject.name || subject.code} />
 
       {/* Grade Adjuster Modal */}
       {showGradeModal && (
